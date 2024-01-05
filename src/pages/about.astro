@@ -1,0 +1,40 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import Navigation from '../components/Navigation.astro';
+import { Image } from 'astro:assets';
+import Footer from '../components/Footer.astro';
+import schoolImg from '../images/school.jpg'
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>About | Atal Utkrisht SBSM GMIC Patlot</title>
+	</head>
+	<body class=" bg-bgCol text-text">
+		<Navigation />
+		<main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
+			<section class="flex gap-4 flex-col md:flex-row">
+				<div class="md:w-1/2">
+					<h2 class="text-4xl pb-1">History</h2>
+					<p class="text-lg">Located in the picturesque Nainital district of Devbhoomi Uttarakhand, the school has a rich history. The school began as a junior high school in 1952, was upgraded to a high school in 1976, and then to intermediate in 1981. In recognition of its outstanding performance, the school was nominated as a model school by the state government in 2016. To honor the martyr, Bahadur Singh Matiyali, the school was renamed as Shaid Bahadur Singh Matiyali Government Model Inter College, Patlot in 2018. The school became a Atal Utkrisht school in 2021.</p>
+				</div>
+				<Image class=' md:w-1/2 rounded object-cover' src={schoolImg} alt='school image'/>
+			</section>
+			<section class="py-12 md:py-24">
+				<h2 class="text-4xl pb-1">Achievements and Progress</h2>
+				<p class="text-lg">Over the past 71 years, this educational institute has produced exceptional results and its students have played important roles in different fields both in India and abroad. Under the guidance of dedicated teachers, the school has made tremendous progress in educational, co-curricular and extra-curricular activities, including science exhibitions, energy conservation, general knowledge competitions, sports, art, and literature. With smart classes and computer education, the school emphasizes the overall development of its 300+ students.</p>
+			</section>
+			<section class="pb-12 md:pb-20">
+				<h2 class="text-4xl pb-1">The Future</h2>
+				<p class="text-lg">In the coming years we aim to elevate the school to new heights. As an Atal Utkrisht school, we strive to promote English usage. We're integrating technology through virtual and smart classes to shape a brighter futur</p>
+			</section>
+            <Footer />
+        </main>
+	</body>
+</html>

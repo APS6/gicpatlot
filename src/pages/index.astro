@@ -1,0 +1,93 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import Navigation from '../components/Navigation.astro';
+import { Image } from 'astro:assets';
+import principalImg from "../images/principal.jpg"
+import gridImage1 from "../images/gridImage-1.jpg"
+import gridImage2 from "../images/gridImage-2.jpg"
+import gridImage3 from "../images/gridImage-3.jpeg"
+import gridImage4 from "../images/gridImage-4.jpg"
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Atal Utkrisht SBSM GMIC Patlot</title>
+	</head>
+	<body class=" bg-bgCol text-text">
+		<Navigation />
+		<main class="max-w-[120rem] m-auto overflow-x-hidden">
+			<header class="h-screen w-full flex flex-col items-center pt-64 md:pt-48 bg-[url(/mobile-bg.jpg)] md:bg-[url(/bg.jpg)] bg-cover bg-bottom">
+				<h1 class="text-[clamp(2rem,6.25vw,7.6rem)] font-bold text-center">Empowering Minds <br> Building Dreams</h1>
+				<p class=" md:text-2xl pt-5 text-center max-w-lg">Affordable and High-Quality Education for all at Atal Utkrisht SBSM GMIC Patlot.</p>
+				<div class=" pt-12 overflow-y-hidden"><div id="line" class=" bg-text h-80 w-[1px]"></div></div>
+			</header>
+			<div class="px-4 md:px-10 2xl:px-12">
+				<section class="py-12 md:py-20">
+					<p class=" text-[clamp(1rem,3vw,3.5rem)] font-medium">"At Atal Utkrish SBSM GMIC Patlot we strive to provide the best quality education to our students. Our school is affiliated with CBSE and follows the CBSE standards."</p>
+				</section>
+				<section class="flex flex-col md:flex-row gap-12 justify-between items-center py-12 md:py-20">
+					<div class=" md:w-1/2 max-w-2xl">
+						<h2 class="text-4xl pb-4 font-medium">Our Principal</h2>
+						<p class="text-lg">Our school's principal Mr. Ashutosh Sah is a lecturer in Physics who has been guiding the school for the last 2 years. He has been a part of the school for a long time. He is a seasoned educator and leader.</p>
+					</div>
+					<Image class=' xl:mr-16' src={principalImg} alt='Principal Ashutosh Sah'/>
+				</section>
+				<section class="py-12 md:py-20">
+					<h2 class="text-4xl pb-3">Our Campus</h2>
+					<div class="border-y border-y-text">
+						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 ">
+							<h3 class="text-5xl md:text-6xl font-semibold">Tech Enabled</h3>
+							<p class="text-lg md:w-[50%]">Our school harnesses the power of technology to enhance education, employing smart classes, virtual sessions, and computer lessons</p>
+						</div>
+						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 border-y border-y-text">
+							<h3 class="text-5xl md:text-6xl font-semibold">Sports</h3>
+							<p class="text-lg md:w-[50%]">Our school supports sports with a big playground and a basketball court, all set up with the needed equipment</p>
+						</div>
+						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6">
+							<h3 class="text-5xl md:text-6xl font-semibold">Clean spaces</h3>
+							<p class="text-lg md:w-[50%]">Prioritizing cleanliness and hygiene, our school maintains pristine surroundings to ensure a healthy learning environment for all students.</p>
+						</div>
+					</div>
+				</section>
+				<section class="py-12 md:py-20 flex flex-col items-center gap-4">
+					<h2 class="text-4xl font-medium block relative after:absolute after:bg-secondary after:w-[110%] after:h-5 after:left-[-5%] after:right-[-5%] after:top-[55%] after:-z-10">Our Facilities</h2>
+					<div class="flex flex-col md:flex-row gap-6">
+						<div class="bg-[#D8E8C3] rounded p-4">
+							<h3 class="text-2xl pb-3 font-medium">Smart Classrooms</h3>
+							<p class="">Classrooms equipped with projector and smart board to encourage interactive learning</p>
+						</div>
+						<div class="bg-[#D8E8C3] rounded p-4">
+							<h3 class="text-2xl pb-3 font-medium">Free uniform and textboook</h3>
+							<p class="">To encourage underprivileged students to attend school, free uniform and textbooks are provided by our school to all children.</p>
+						</div>
+						<div class="bg-[#D8E8C3] rounded p-4">
+							<h3 class="text-2xl pb-3 font-medium">Mid-day meal</h3>
+							<p class="">Students are provided freshly prepared mid day meal at school everyday.</p>
+						</div>
+					</div>
+				</section>
+				<section class="py-12 md:py-20">
+					<div class="flex gap-6 flex-col md:flex-row pb-6">
+						<Image class="rounded w-full md:w-[60%] object-cover" loading='lazy' src={gridImage1} alt='students in India formation'/>
+						<Image class="rounded w-full md:w-[40%] object-cover" loading='lazy' src={gridImage2} alt='khel Mahotsav'/>
+					</div>
+					<div class="flex gap-6 flex-col md:flex-row">
+						<Image class="rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage3} alt='students in India formation'/>
+						<Image class="rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage4} alt='khel Mahotsav'/>
+					</div>
+				</section>
+				<Footer />
+			</div>
+		</main>
+			<script src="../scripts/animations.js"></script>
+	</body>
+</html>
+

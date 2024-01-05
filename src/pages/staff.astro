@@ -1,0 +1,39 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const staff = await getCollection('staff')
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Staff | Atal Utkrisht SBSM GMIC Patlot</title>
+	</head>
+	<body class=" bg-bgCol text-text">
+		<Navigation />
+		<main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
+            <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-[900px]:grid-cols-4 xl:grid-cols-5 gap-6 pb-12">
+               { staff.map((member) => {
+                    return (
+                        <div class="bg-[#DFE0D1] flex flex-col items-center text-center py-2 px-4 rounded justify-center md:justify-normal">
+                            <Image class='rounded-full w-[100px] aspect-square object-cover' src={member.data.image} alt={member.slug} width={100} height={100}/>
+                            <h3 class="text-xl">{member.data.name}</h3>
+                            <span class="text-sm">Designation - {member.data.designation}</span>
+                        </div>
+                    )
+               })
+               }
+            </div>
+            <Footer />
+        </main>
+	</body>
+</html>

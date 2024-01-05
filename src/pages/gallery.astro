@@ -1,0 +1,35 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const images = await getCollection('gallery')
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Gallery | Atal Utkrisht SBSM GMIC Patlot</title>
+	</head>
+	<body class=" bg-bgCol text-text">
+		<Navigation />
+		<main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
+            <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-[900px]:grid-cols-4 gap-6 pb-12">
+               { images.map((image) => {
+                    return (
+                            <Image class=' object-cover rounded w-full' src={image.data.image} alt={image.slug} width={300} height={300}/>
+                    )
+               })
+               }
+            </div>
+            <Footer />
+        </main>
+	</body>
+</html>

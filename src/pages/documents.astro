@@ -1,0 +1,34 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const documents = await getCollection('documents')
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Documents | Atal Utkrisht SBSM GMIC Patlot</title>
+	</head>
+	<body class=" bg-bgCol text-text">
+		<Navigation />
+		<main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
+            <div class=" flex flex-wrap gap-8 pb-12">
+               { documents.map((doc) => {
+                    return (
+                       <a class="p-2 px-6 text-xl bg-secondary rounded-xl" href={doc.data.image}>{doc.data.name}</a>     
+                    )
+               })
+               }
+            </div>
+            <Footer />
+        </main>
+	</body>
+</html>

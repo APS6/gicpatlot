@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../images/logo.jpg"
+---
+
+<nav class="fixed top-0 left-0 right-0 z-40 bg-bgCol border-b border-text py-3 px-4 md:px-10 flex justify-between items-center">
+  <a href="/" class="flex gap-2 items-center">
+    <Image
+      class="rounded-full w-12 h-12"
+      src={Logo}
+      alt="logo"
+    />
+    <span class="text-xl font-bold">GIC Patlot</span>
+  </a>
+  <ul class="flex gap-4 sm:gap-6 text-lg items-center cursor-pointer">
+    <li class="hidden sm:block"><a href="/">Home</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li id="burger" class="w-6 flex flex-col gap-1 py-2">
+        <div class=" h-[2px] bg-text w-full"></div>
+        <div class=" h-[2px] bg-text w-full"></div>
+    </li>
+  </ul>
+</nav>
+
+<div id="menu" class="bg-secondary h-screen w-full fixed inset-0 p-1 z-50 -translate-y-full rounded-b">
+  <div class="flex gap-1 items-center">
+    <div id="close" class="p-1 hover:bg-[#b1d361] rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M8.53341 25.3333L6.66675 23.4667L14.1334 16L6.66675 8.53334L8.53341 6.66667L16.0001 14.1333L23.4667 6.66667L25.3334 8.53334L17.8667 16L25.3334 23.4667L23.4667 25.3333L16.0001 17.8667L8.53341 25.3333Z" fill="#0B0602"/>
+      </svg>
+    </div>
+  </div>
+  <div class="md:px-10 mt-2 flex flex-col md:flex-row gap-2 md:gap-8">
+    <div id="links" class="flex flex-col gap-2 md:gap-6 text-[clamp(2rem,6.6vw,7.8rem)] md:pr-8 md:border-r border-r-text">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+    </div>
+    <div id="moreStuff" class="flex flex-col gap-4 text-[clamp(2rem,6.625vw,7.875rem)] md:text-[clamp(1.25rem,3.75vw,4.5rem)]">
+      <a href="/staff">Staff</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/documents">Documents</a>
+    </div>
+  </div>
+</div>
+			<script src="../scripts/navigation.js"></script>
