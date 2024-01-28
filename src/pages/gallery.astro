@@ -34,12 +34,40 @@ const images = await getCollection('gallery')
             <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-12">
                { images.map((image) => {
                     return (
-                            <Image class=' object-cover rounded w-full' src={image.data.image} alt={image.slug} width={300} height={300}/>
+                            <Image class='pop-image object-cover rounded w-full' src={image.data.image} alt={image.slug} width={300} height={300}/>
                     )
                })
                }
             </div>
+			<div id="popover" class=" hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2">
+				<img id="popoverImage" src="" alt="">
+			</div>
             <Footer />
         </main>
 	</body>
+
+	<script>
+		const images = document.querySelectorAll(".pop-image")
+		const popover = document.getElementById('popover');
+        const popoverImage = document.getElementById('popoverImage');
+
+		images.forEach((image) => {
+			image.addEventListener('click', () => {
+				const src = image.getAttribute('src')
+				const alt = image.getAttribute('alt')
+
+				popoverImage.setAttribute("src", src)
+				popoverImage.setAttribute("alt", alt)
+				popover.style.display = 'grid'
+			})
+		})
+
+		popover.addEventListener("click", () => {
+			popover.style.display = 'none'
+		})
+
+		popoverImage.addEventListener("click", (e) => {
+			e.stopPropagation()
+		})
+	</script>
 </html>

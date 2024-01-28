@@ -86,18 +86,45 @@ import Footer from '../components/Footer.astro';
 				</section>
 				<section class="py-12 md:py-20">
 					<div class="flex gap-6 flex-col md:flex-row pb-6">
-						<Image class="rounded w-full md:w-[60%] object-cover" loading='lazy' src={gridImage1} alt='students in India formation'/>
-						<Image class="rounded w-full md:w-[40%] object-cover" loading='lazy' src={gridImage2} alt='khel Mahotsav'/>
+						<Image class="pop-image rounded w-full md:w-[60%] object-cover" loading='lazy' src={gridImage1} data-popover-src="/gallery/gal-img.jpg" alt='students in India formation'/>
+						<Image class="pop-image rounded w-full md:w-[40%] object-cover" loading='lazy' src={gridImage2} data-popover-src="/gallery/img22.jpg" alt='khel Mahotsav'/>
 					</div>
 					<div class="flex gap-6 flex-col md:flex-row">
-						<Image class="rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage3} alt='students in India formation'/>
-						<Image class="rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage4} alt='khel Mahotsav'/>
+						<Image class="pop-image rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage3} data-popover-src="/gallery/img10.jpg" alt='students watching smartclass'/>
+						<Image class="pop-image rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage4} data-popover-src="/gallery/img5.jpg" alt='khel Mahotsav'/>
 					</div>
 				</section>
 				<Footer />
+				<div id="popover" class=" hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2">
+					<img id="popoverImage" src="" alt="">
+				</div>
 			</div>
 		</main>
 			<script src="../scripts/animations.js"></script>
+			<script>
+				const images = document.querySelectorAll(".pop-image")
+				const popover = document.getElementById('popover');
+				const popoverImage = document.getElementById('popoverImage');
+		
+				images.forEach((image) => {
+					image.addEventListener('click', () => {
+						const src = image.getAttribute('data-popover-src')
+						const alt = image.getAttribute('alt')
+		
+						popoverImage.setAttribute("src", src)
+						popoverImage.setAttribute("alt", alt)
+						popover.style.display = 'grid'
+					})
+				})
+		
+				popover.addEventListener("click", () => {
+					popover.style.display = 'none'
+				})
+		
+				popoverImage.addEventListener("click", (e) => {
+					e.stopPropagation()
+				})
+			</script>
 	</body>
 </html>
 
