@@ -96,7 +96,7 @@ import Footer from '../components/Footer.astro';
 				</section>
 				<Footer />
 				<div id="popover" class=" hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2">
-					<img id="popoverImage" src="" alt="">
+					<img class="max-w-[80%] max-h-[80vh] object-contain" id="popoverImage" src="" alt="">
 				</div>
 			</div>
 		</main>
@@ -124,6 +124,11 @@ import Footer from '../components/Footer.astro';
 				popoverImage.addEventListener("click", (e) => {
 					e.stopPropagation()
 				})
+				document.addEventListener("keydown", (e) => {
+					if (e.key === "Escape") {
+						popover.style.display = 'none';
+					}
+				});
 			</script>
 	</body>
 </html>

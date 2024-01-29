@@ -34,13 +34,13 @@ const images = await getCollection('gallery')
             <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-12">
                { images.map((image) => {
                     return (
-                            <Image class='pop-image object-cover rounded w-full' src={image.data.image} alt={image.slug} width={300} height={300}/>
+                            <Image class='pop-image object-cover rounded w-full sm:aspect-[1000/615]' src={image.data.image} alt={image.slug} width={300} height={300}/>
                     )
                })
                }
             </div>
 			<div id="popover" class=" hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2">
-				<img id="popoverImage" src="" alt="">
+				<img class="max-w-[80%] max-h-[80vh] object-contain" id="popoverImage" src="" alt="">
 			</div>
             <Footer />
         </main>
@@ -69,5 +69,11 @@ const images = await getCollection('gallery')
 		popoverImage.addEventListener("click", (e) => {
 			e.stopPropagation()
 		})
+		
+		document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape") {
+			popover.style.display = 'none';
+		}
+	});
 	</script>
 </html>
