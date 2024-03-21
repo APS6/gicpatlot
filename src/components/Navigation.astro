@@ -2,26 +2,31 @@
 import { Image } from "astro:assets";
 import Logo from "../images/logo.jpg"
 ---
-
-<nav class="fixed top-0 left-0 right-0 z-40 bg-bgCol border-b border-text py-3 px-4 md:px-10 flex justify-between items-center">
-  <a href="/" class="flex gap-2 items-center">
-    <Image
-      class="rounded-full w-12 h-12"
-      src={Logo}
-      alt="GIC Patlot logo"
-    />
-    <span class="text-xl font-bold">GIC Patlot</span>
-  </a>
-  <ul class="flex gap-4 sm:gap-6 text-lg items-center cursor-pointer">
-    <li class="hidden sm:block"><a href="/">Home</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li id="burger" class="w-8 px-1 flex flex-col gap-1 py-2">
-        <div class=" h-[2px] bg-text w-full"></div>
-        <div class=" h-[2px] bg-text w-full"></div>
-    </li>
-  </ul>
-</nav>
-
+<div class="fixed top-0 left-0 right-0 z-40">
+  <div class="py-2 bg-secondary px-1">
+    <p class="mx-auto w-fit text-sm md:text-lg text-center">No Board Fees! Registration and board fees waived by the government. पंजीकरण और बोर्ड फीस सरकार द्वारा माफ!</p>
+  </div>
+  <nav class=" bg-bgCol border-b border-text py-3 px-4 md:px-10 flex justify-between items-center">
+    <a href="/" class="flex gap-2 items-center">
+      <Image
+        class="rounded-full w-12 h-12"
+        src={Logo}
+        alt="GIC Patlot logo"
+      />
+      <span class="text-xl font-bold">GIC Patlot</span>
+    </a>
+    <ul class="flex gap-4 sm:gap-6 text-lg items-center cursor-pointer">
+      <li class="hidden sm:block"><a href="/">Home</a></li>
+      <li class="hidden sm:block"><a href="/about">About</a></li>
+      <li class="hidden sm:block"><a href="/gallery">Gallery</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li id="burger" class="w-8 px-1 flex flex-col gap-1 py-2">
+          <div class=" h-[2px] bg-text w-full"></div>
+          <div class=" h-[2px] bg-text w-full"></div>
+      </li>
+    </ul>
+  </nav>
+</div>
 <div id="menu" class="bg-secondary h-screen w-full fixed inset-0 p-1 z-50 -translate-y-full rounded-b">
   <div class="flex gap-1 items-center">
     <div id="close" class="p-1 hover:bg-[#b1d361] rounded-full">
@@ -34,12 +39,13 @@ import Logo from "../images/logo.jpg"
     <div id="links" class="flex flex-col gap-2 md:gap-6 text-[clamp(2.5rem,6.6vw,7.8rem)] md:pr-8 md:border-r border-r-text">
           <a href="/">Home</a>
           <a href="/about">About</a>
+          <a href="/gallery">Gallery</a>
           <a href="/contact">Contact</a>
     </div>
     <div id="moreStuff" class="flex flex-col gap-4 text-[clamp(2.5rem,6.6vw,7.8rem)] md:text-[clamp(1.25rem,3.75vw,4.5rem)]">
       <a href="/staff">Staff</a>
-      <a href="/gallery">Gallery</a>
       <a href="/documents">Documents</a>
+      <a href="/results">Result</a>
     </div>
   </div>
 </div>
