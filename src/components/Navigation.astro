@@ -17,10 +17,18 @@ import Logo from "../images/logo.jpg"
     </a>
     <ul class="flex gap-4 sm:gap-6 text-lg items-center cursor-pointer">
       <li class="hidden sm:block"><a href="/">Home</a></li>
-      <li class="hidden sm:block"><a href="/about">About</a></li>
+      <li class="hidden sm:block group relative">
+        <div class="flex items-center "><span>About Us</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4z"/></svg></div>
+        <ul class="hidden group-hover:block absolute top-6 -left-6 bg-[#e5e5e5] rounded">
+          <a class="block py-2 px-4 w-full hover:bg-[#cfcfcf]" href="/about"><span>Our School</span></a>
+          <a class="block py-2 px-4 w-full hover:bg-[#cfcfcf]" href="/staff"><span>Staff</span></a>
+          <a class="block py-2 px-4 w-full hover:bg-[#cfcfcf]" href="/documents"><span>Documents</span></a>
+        </ul>
+      </li>
       <li class="hidden sm:block"><a href="/gallery">Gallery</a></li>
+      <li class="hidden sm:block"><a href="/results">Result</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li id="burger" class="w-8 px-1 flex flex-col gap-1 py-2">
+      <li id="burger" class=" sm:hidden w-8 px-1 flex flex-col gap-1 py-2">
           <div class=" h-[2px] bg-text w-full"></div>
           <div class=" h-[2px] bg-text w-full"></div>
       </li>
