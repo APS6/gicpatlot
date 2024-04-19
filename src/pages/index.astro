@@ -6,10 +6,10 @@ import '@fontsource/poppins/700.css';
 import Navigation from '../components/Navigation.astro';
 import { Image } from 'astro:assets';
 import principalImg from "../images/principal.jpg"
-import gridImage1 from "../images/gridImage-1.jpg"
-import gridImage2 from "../images/gridImage-2.jpg"
-import gridImage3 from "../images/gridImage-3.jpeg"
-import gridImage4 from "../images/gridImage-4.jpg"
+import gridImage1 from "../images/gridImage-1.webp"
+import gridImage2 from "../images/gridImage-2.webp"
+import gridImage3 from "../images/gridImage-3.webp"
+import gridImage4 from "../images/gridImage-4.webp"
 import Footer from '../components/Footer.astro';
 ---
 
@@ -23,7 +23,7 @@ import Footer from '../components/Footer.astro';
 		<meta name="keywords" content="PM Shri AU SBSM GMIC Patlot, AU SBSM GIC Patlot, GIC Patlot, Patlot, Atal Utkrisht, Shaaheed Bahadur Singh Matiyali, SBSM">
 		<meta property="og:title" content="PM Shri Atal Utkrisht SBSM GMIC Patlot">
 		<meta property="og:description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand.">
-		<meta property="og:image" content="https://gicpatlot.in/base/og.jpg">
+		<meta property="og:image" content="https://gicpatlot.in/base/og.webp">
 		<meta property="og:url" content="https://gicpatlot.in/">
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:title" content="PM Shri Atal Utkrisht SBSM GMIC Patlot">
@@ -45,8 +45,8 @@ import Footer from '../components/Footer.astro';
 				</section>
 				<section class="flex flex-col md:flex-row gap-12 justify-between items-center py-12 md:py-20">
 					<div class=" md:w-1/2 max-w-2xl">
-						<h2 class="text-4xl pb-4 font-medium">Our Principal</h2>
-						<p class="text-lg">Our school's Principal Mr. Ashutosh Sah is a lecturer in Physics who has been guiding the school for the last 2 years. He has been a part of the school for a long time. He is a seasoned educator and leader.</p>
+						<h2 class="text-4xl xl:text-[2.5rem] pb-4 font-medium">Our Principal</h2>
+						<p class="text-lg md:text-xl xl:text-2xl xl:leading-relaxed">Our school's Principal Mr. Ashutosh Sah is a lecturer in Physics who has been guiding the school for the last 2 years. He has been a part of the school for a long time. He is a seasoned educator and leader.</p>
 					</div>
 					<Image class='rounded-full xl:mr-16' src={principalImg} alt='Principal Ashutosh Sah'/>
 				</section>
@@ -54,33 +54,33 @@ import Footer from '../components/Footer.astro';
 					<h2 class="text-4xl pb-3">Our Campus</h2>
 					<div class="border-y border-y-text">
 						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 ">
-							<h3 class="text-5xl md:text-6xl font-semibold">Tech Enabled</h3>
-							<p class="text-lg md:w-[50%]">Our school harnesses the power of technology to enhance education, employing smart classes, virtual sessions, and computer lessons</p>
+							<h3 class="text-5xl md:text-6xl xl:text-7xl font-semibold">Tech Enabled</h3>
+							<p class="text-lg xl:text-xl md:w-[50%]">Our school harnesses the power of technology to enhance education, employing smart classes, virtual sessions, and computer lessons</p>
 						</div>
 						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 border-y border-y-text">
-							<h3 class="text-5xl md:text-6xl font-semibold">Sports</h3>
-							<p class="text-lg md:w-[50%]">Our school supports sports with a big playground and a basketball court, all set up with the needed equipment</p>
+							<h3 class="text-5xl md:text-6xl xl:text-7xl font-semibold">Sports</h3>
+							<p class="text-lg xl:text-xl md:w-[50%]">Our school supports sports with a big playground and a basketball court, all set up with the needed equipment</p>
 						</div>
 						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6">
-							<h3 class="text-5xl md:text-6xl font-semibold">Clean spaces</h3>
-							<p class="text-lg md:w-[50%]">Prioritizing cleanliness and hygiene, our school maintains pristine surroundings to ensure a healthy learning environment for all students.</p>
+							<h3 class="text-5xl md:text-6xl xl:text-7xl font-semibold">Clean spaces</h3>
+							<p class="text-lg xl:text-xl md:w-[50%]">Prioritizing cleanliness and hygiene, our school maintains pristine surroundings to ensure a healthy learning environment for all students.</p>
 						</div>
 					</div>
 				</section>
 				<section class="py-12 md:py-20 flex flex-col items-center gap-4">
-					<h2 class="text-4xl font-medium block relative after:absolute after:bg-secondary after:w-[110%] after:h-5 after:left-[-5%] after:right-[-5%] after:top-[55%] after:-z-10">Our Facilities</h2>
+					<h2 class="text-4xl xl:text-[2.5rem] font-medium block relative after:absolute after:bg-secondary after:w-[110%] after:h-5 after:left-[-5%] after:right-[-5%] after:top-[55%] after:-z-10">Our Facilities</h2>
 					<div class="flex flex-col md:flex-row gap-6">
 						<div class="bg-[#D8E8C3] rounded p-4">
-							<h3 class="text-2xl pb-3 font-medium">Smart Classrooms</h3>
-							<p class="">Classrooms equipped with projector and smart board to encourage interactive learning</p>
+							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Smart Classrooms</h3>
+							<p class="md:text-lg xl:text-xl">Classrooms equipped with projector and smart board to encourage interactive learning</p>
 						</div>
 						<div class="bg-[#D8E8C3] rounded p-4">
-							<h3 class="text-2xl pb-3 font-medium">Free uniform and textboook</h3>
-							<p class="">To encourage underprivileged students to attend school, free uniform and textbooks are provided by our school to all children.</p>
+							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Free uniform and textboook</h3>
+							<p class="md:text-lg xl:text-xl">To encourage underprivileged students to attend school, free uniform and textbooks are provided by our school to all children.</p>
 						</div>
 						<div class="bg-[#D8E8C3] rounded p-4">
-							<h3 class="text-2xl pb-3 font-medium">Mid-day meal</h3>
-							<p class="">Students are provided freshly prepared mid day meal at school everyday.</p>
+							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Mid-day meal</h3>
+							<p class="md:text-lg xl:text-xl">Students are provided freshly prepared mid day meal at school everyday.</p>
 						</div>
 					</div>
 				</section>
