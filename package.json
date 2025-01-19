@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "tinacms build && build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -13,7 +13,6 @@
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.4.0",
     "@fontsource/poppins": "^5.0.8",
-    "@vercel/analytics": "^1.2.2",
     "astro": "^4.0.8",
     "gsap": "^3.12.4",
     "tailwindcss": "^3.4.0",
