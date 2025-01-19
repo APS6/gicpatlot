@@ -49,7 +49,7 @@ import Footer from '../components/Footer.astro';
 				<section class="flex flex-col md:flex-row gap-12 justify-between items-center py-12 md:py-20">
 					<div class=" md:w-1/2 max-w-2xl">
 						<h2 class="text-4xl xl:text-[2.5rem] pb-4 font-medium">Our Principal</h2>
-						<p class="text-lg md:text-xl xl:text-2xl xl:leading-relaxed">Our school's Principal Mr. Ashutosh Sah is a lecturer in Physics who has been guiding the school for the last 2 years. He has been a part of the school for a long time. He is a seasoned educator and leader.</p>
+						<p class="text-lg md:text-xl xl:text-2xl xl:leading-relaxed">Our school's Principal Mr. Ashutosh Sah is a lecturer in Physics who has been guiding the school for the last 3 years. He has been a part of the school for a long time. He is a seasoned educator and leader.</p>
 					</div>
 					<Image class='rounded-full xl:mr-16' src={principalImg} alt='Principal Ashutosh Sah'/>
 				</section>
@@ -111,22 +111,22 @@ import Footer from '../components/Footer.astro';
 				const images = document.querySelectorAll(".pop-image")
 				const popover = document.getElementById('popover');
 				const popoverImage = document.getElementById('popoverImage');
-		
+
 				images.forEach((image) => {
 					image.addEventListener('click', () => {
 						const src = image.getAttribute('data-popover-src')
 						const alt = image.getAttribute('alt')
-		
+
 						popoverImage.setAttribute("src", src)
 						popoverImage.setAttribute("alt", alt)
 						popover.style.display = 'grid'
 					})
 				})
-		
+
 				popover.addEventListener("click", () => {
 					popover.style.display = 'none'
 				})
-		
+
 				popoverImage.addEventListener("click", (e) => {
 					e.stopPropagation()
 				})
@@ -138,4 +138,3 @@ import Footer from '../components/Footer.astro';
 			</script>
 	</body>
 </html>
-
