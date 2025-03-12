@@ -1,0 +1,4 @@
+---
+image: /gallery/IMG-20250127-WA0004.jpg
+---
+
