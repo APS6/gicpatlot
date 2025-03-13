@@ -33,9 +33,10 @@ const images = await getCollection('gallery')
 		<Navigation />
 		<main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
             <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-12">
-               { images.reverse().map((image) => {
+               { images.reverse().map((image, i) => {
+               const loading = i < 10 ? 'eager' : 'lazy';
                     return (
-                            <Image class='pop-image object-cover rounded w-full sm:aspect-[1000/615]' src={image.data.image} alt="Gallery image" width={300} height={300}/>
+                            <Image class='pop-image object-cover rounded w-full sm:aspect-[1000/615]' src={image.data.image} alt="Gallery image" loading={loading} width={300} height={300} />
                     )
                })
                }
