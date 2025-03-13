@@ -16,7 +16,7 @@ import Logo from "../images/logo.jpg"
       <li class="hidden sm:block"><a href="/">Home</a></li>
       <li class="hidden sm:block group relative">
         <div class="flex items-center "><span>About Us</span> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4z"/></svg></div>
-        <ul class="hidden group-hover:block absolute top-6 -left-6 bg-[#e5e5e5] rounded">
+        <ul class="hidden group-hover:block absolute top-7 -left-6 bg-[#e5e5e5] rounded">
           <a class="block py-2 px-4 w-full hover:bg-[#cfcfcf]" href="/about"><span>Our School</span></a>
           <a class="block py-2 px-4 w-full hover:bg-[#cfcfcf]" href="/staff"><span>Staff</span></a>
           <a class="block py-2 px-4 w-full hover:bg-[#cfcfcf]" href="/documents"><span>Documents</span></a>
@@ -32,8 +32,8 @@ import Logo from "../images/logo.jpg"
     </ul>
   </nav>
 </div>
-<div id="menu" class="bg-secondary h-screen w-full fixed inset-0 p-1 z-50 -translate-y-full rounded-b">
-  <div class="flex gap-1 items-center">
+<div id="menu" class="bg-secondary h-screen w-full flex flex-col items-center fixed inset-0 p-1 z-50 -translate-y-full rounded-b">
+  <div class="flex self-end items-center">
     <div id="close" class="p-1 hover:bg-[#b1d361] rounded-full">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
         <path d="M8.53341 25.3333L6.66675 23.4667L14.1334 16L6.66675 8.53334L8.53341 6.66667L16.0001 14.1333L23.4667 6.66667L25.3334 8.53334L17.8667 16L25.3334 23.4667L23.4667 25.3333L16.0001 17.8667L8.53341 25.3333Z" fill="#0B0602"/>
@@ -41,17 +41,15 @@ import Logo from "../images/logo.jpg"
     </div>
   </div>
   <div class=" px-1 md:px-10 mt-2 flex flex-col md:flex-row gap-2 md:gap-8">
-    <div id="links" class="flex flex-col gap-2 md:gap-6 text-[clamp(2.5rem,5vw,7rem)] md:pr-8 md:border-r border-r-text">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/gallery">Gallery</a>
-          <a href="/contact">Contact</a>
-    </div>
-    <div id="moreStuff" class="flex flex-col gap-2 md:gap-4 text-[clamp(2.5rem,5vw,7rem)] md:text-[clamp(1.25rem,3.75vw,4.5rem)]">
-      <a href="/staff">Staff</a>
-      <a href="/documents">Documents</a>
-      <a href="/results">Result</a>
-    </div>
+    <div id="links" class="flex flex-col gap-2 md:gap-6 text-[clamp(2.5rem,5vw,7rem)] md:pr-8 md:border-r border-r-text text-center">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/contact">Contact</a>
+        <a href="/staff">Staff</a>
+        <a href="/documents">Documents</a>
+        <a href="/results">Result</a>
+      </div>
   </div>
 </div>
-			<script src="../scripts/navigation.js"></script>
+<script src="../scripts/navigation.js"></script>
