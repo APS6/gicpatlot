@@ -9,6 +9,17 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
 const staff = await getCollection('staff')
+
+const getOrder = (designation) => {
+  if (designation.toLowerCase().includes("principal")) return 1;
+  if (designation.toLowerCase().includes("pgt")) return 2;
+  if (designation.toLowerCase().includes("tgt")) return 3;
+  return 99;
+};
+
+// Sort staff based on designation priority
+staff.sort((a, b) => getOrder(a.data.designation) - getOrder(b.data.designation));
+
 ---
 <html lang="en">
 	<head>
