@@ -1,4 +1,0 @@
----
-image: /gallery/img2.jpg
----
-

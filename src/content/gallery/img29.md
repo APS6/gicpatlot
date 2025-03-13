@@ -1,4 +1,0 @@
----
-image: /WhatsApp Image 2025-03-12 at 8.32.01 PM.jpeg
----
-

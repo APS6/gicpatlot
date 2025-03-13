@@ -1,4 +1,0 @@
----
-image: /gallery/IMG-20250127-WA0011.jpg
----
-
