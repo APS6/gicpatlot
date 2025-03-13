@@ -9,6 +9,7 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
 const images = await getCollection('gallery')
+
 ---
 <html lang="en">
 	<head>
@@ -32,15 +33,15 @@ const images = await getCollection('gallery')
 		<Navigation />
 		<main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
             <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-12">
-               { images.map((image) => {
+               { images.reverse().map((image) => {
                     return (
-                            <Image class='pop-image object-cover rounded w-full sm:aspect-[1000/615]' src={image.data.image} alt={image.slug} width={300} height={300}/>
+                            <Image class='pop-image object-cover rounded w-full sm:aspect-[1000/615]' src={image.data.image} alt="Gallery image" width={300} height={300}/>
                     )
                })
                }
             </div>
 			<div id="popover" class=" hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2">
-				<img class="max-w-[80%] max-h-[80vh] object-contain" id="popoverImage" src="" alt="">
+				<img class="max-w-[80%] max-h-[80vh] object-contain" id="popoverImage" src="" alt="Gallery image ">
 			</div>
             <Footer />
         </main>
@@ -54,10 +55,8 @@ const images = await getCollection('gallery')
 		images.forEach((image) => {
 			image.addEventListener('click', () => {
 				const src = image.getAttribute('src')
-				const alt = image.getAttribute('alt')
 
 				popoverImage.setAttribute("src", src)
-				popoverImage.setAttribute("alt", alt)
 				popover.style.display = 'grid'
 			})
 		})
@@ -69,7 +68,7 @@ const images = await getCollection('gallery')
 		popoverImage.addEventListener("click", (e) => {
 			e.stopPropagation()
 		})
-		
+
 		document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") {
 			popover.style.display = 'none';
