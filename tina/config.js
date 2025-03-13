@@ -58,6 +58,15 @@ export default defineConfig({
         name: "gallery",
         label: "Gallery",
         path: "src/content/gallery",
+        ui: {
+          filename: {
+            readonly: true,
+            slugify: () => {
+              const timestamp = new Date().getTime();
+              return `gallery-${timestamp}`;
+            },
+          },
+        },
         fields: [
           {
             type: "image",
