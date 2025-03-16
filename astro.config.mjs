@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.gicpatlot.in",
+  site: "https://gicpatlot.in",
   integrations: [tailwind()],
   output: "static",
 });
