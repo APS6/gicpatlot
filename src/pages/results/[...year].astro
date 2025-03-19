@@ -1,0 +1,124 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const results = await getCollection('results')
+  const years = results.map((r) => r.slug)
+  return [
+    {
+      params: { year: undefined },
+      props: { result: results[0].data, years }
+    },
+    ...results.map((r) => ({
+      params: { year: r.slug },
+      props: { result: r.data, years }
+    }))
+  ]
+}
+
+
+const { result, years } = Astro.props;
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/base/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GMIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand." />
+		<meta name="keywords" content="PM Shri AU SBSM GMIC Patlot, AU SBSM GIC Patlot, GIC Patlot, Patlot, Atal Utkrisht, Shaaheed Bahadur Singh Matiyali, SBSM">
+		<meta property="og:title" content="PM Shri Atal Utkrisht SBSM GMIC Patlot">
+		<meta property="og:description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand.">
+		<meta property="og:image" content="https://gicpatlot.in/base/og.jpg">
+		<meta property="og:url" content="https://gicpatlot.in/">
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:title" content="PM Shri Atal Utkrisht SBSM GMIC Patlot">
+		<meta property="twitter:description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand.">
+		<meta property="twitter:image" content="https://gicpatlot.in/base/og.jpg">
+		<title>Result {result.year - 1} - {result.year.slice(2, 4)} | PM Shri Atal Utkrisht SBSM GIC Patlot</title>
+	</head>
+	<body class=" bg-bgCol text-text">
+		<Navigation />
+		<main class="relative m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28 ">
+		  <h1 class="text-2xl md:text-6xl font-bold text-center mt-12 md:mt-0">{result.year - 1} - {result.year.slice(2, 4)} CBSE Board Results</h1>
+				<div class="flex flex-col md:flex-row gap-12 justify-evenly mt-8 md:mt-32">
+                    <div class="text-3xl md:text-5xl font-semibold text-center">
+                        <h3>Class XII</h3>
+                        <span class="block pt-2">{result.class12PassPercentage}%</span>
+                    </div>
+                    <div class="text-3xl md:text-5xl font-semibold text-center">
+                        <h3>Class XII</h3>
+                        <span class="block pt-2">{result.class10PassPercentage}%</span>
+                    </div>
+				</div>
+				<div class="flex flex-col items-center mt-20 md:mt-32">
+				    <h2 class="text-4xl md:text-5xl font-bold">Inter School</h2>
+    					<h3 class="text-3xl md:text-4xl font-semibold mt-8 md:mt-16">Our Toppers</h3>
+        				<div class="flex flex-col w-full md:flex-row gap-6 mt-4 flex-wrap md:justify-center">
+                        {result.interResults.topFiveStudents.map((student) =>
+                        <div class="bg-secondary rounded py-4 px-6 text-center">
+                            <h4 class="text-2xl md:text-3xl">{student.name}</h4>
+                            <span class="text-2xl md:text-3xl mt-2">{student.percentage}%</span>
+                        </div>)}
+    					</div>
+                        <h3 class="text-3xl md:text-4xl font-semibold mt-16">Subject Wise Toppers</h3>
+                        <div class="max-w-[80rem] w-full mt-6 flex flex-col md:flex-row gap-6 flex-wrap md:justify-center">
+                        {result.interResults.toppersBySubject.map((sub) =>
+                        <div class="bg-secondary py-2 px-4 rounded text-xl md:text-2xl text-center">{sub.subject} - {sub.studentName} <span>({sub.percentage}%)</span></div>
+                        )}
+                        </div>
+				</div>
+				<div class="flex flex-col items-center mt-20 md:mt-32 mb-24">
+				    <h2 class="text-4xl md:text-5xl font-bold">High School</h2>
+    					<h3 class="text-3xl md:text-4xl font-semibold mt-12 md:mt-16">Our Toppers</h3>
+        				<div class="flex flex-col w-full md:flex-row gap-6 mt-4 flex-wrap md:justify-center">
+                            {result.highSchoolResults.topFiveStudents.map((student) =>
+                            <div class="bg-secondary rounded py-4 px-6 text-center">
+                                <h4 class="text-2xl md:text-3xl">{student.name}</h4>
+                                <span class="text-2xl md:text-3xl mt-2">{student.percentage}%</span>
+                            </div>)}
+    					</div>
+                        <h3 class="text-3xl md:text-4xl font-semibold mt-16">Subject Wise Toppers</h3>
+                        <div class="max-w-[80rem] w-full mt-6 flex flex-col md:flex-row gap-6 flex-wrap md:justify-center">
+                            {result.highSchoolResults.toppersBySubject.map((sub) =>
+                            <div class="bg-secondary py-2 px-4 rounded text-xl md:text-2xl text-center">{sub.subject} - {sub.studentName} <span>({sub.percentage}%)</span></div>
+                            )}
+                        </div>
+				</div>
+          <Footer />
+          <div class="absolute top-20 right-4 left-4 md:left-auto text-lg ">
+            <button id="yearSelect" class="bg-[#dbff9f] w-full px-4 py-2 flex items-center justify-center gap-2 rounded">
+              Select Year
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div id="yearOptions" class="hidden absolute right-0 w-full rounded-b bg-[#dbff9f] py-2]">
+              {years.map(year => (
+                <a href={`/results/${year}`} class="block px-4 py-2 hover:bg-[#b3d180]">{Number(year) - 1} - {year.toString().slice(2,4)}</a>
+              ))}
+            </div>
+          </div>
+          <script>
+            const yearSelect = document.getElementById('yearSelect');
+            const yearOptions = document.getElementById('yearOptions');
+
+            yearSelect.addEventListener('click', () => {
+              yearSelect.classList.toggle('rounded')
+              yearOptions.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (e: MouseEvent) => {
+              if (!yearSelect?.contains(e.target as Node)) {
+                yearOptions?.classList.add('hidden');
+                yearSelect?.classList.add('rounded')
+              }
+            });
+          </script>
+        </main>
+	</body>
+</html>
