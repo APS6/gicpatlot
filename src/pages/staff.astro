@@ -44,11 +44,12 @@ staff.sort((a, b) => getOrder(a.data.designation) - getOrder(b.data.designation)
 		<main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
             <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 min-[900px]:grid-cols-4 xl:grid-cols-5 gap-6 pb-12">
                { staff.map((member) => {
+                  let designation = member.data.designation.includes("Principal") ? member.data.designation.replace("Principal", "Principal\n") : member.data.designation
                     return (
                         <div class="bg-[#DFE0D1] flex flex-col items-center text-center py-2 px-4 rounded justify-center md:justify-normal">
                             <Image class='rounded-full w-[100px] aspect-square object-cover' src={member.data.image} alt={member.slug} width={100} height={100}/>
                             <h3 class="text-xl">{member.data.name}</h3>
-                            <span class="text-sm">Designation - {member.data.designation}</span>
+                            <span class="text-sm whitespace-pre">Designation - {designation}</span>
                         </div>
                     )
                })
