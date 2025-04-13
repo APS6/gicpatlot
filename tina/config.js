@@ -50,6 +50,12 @@ export default defineConfig({
             label: "Image",
             required: true,
           },
+          {
+            type: "datetime",
+            name: "dateOfJoining",
+            label: "Date of Joining",
+            required: true,
+          },
         ],
       },
       {
