@@ -58,14 +58,14 @@ const updates = await getCollection('updates');
             <a class={update.body !== '\n' ? "cursor-pointer" : "cursor-default"} href={update.body !== '\n' ? `/updates/${update.slug}`: ""}>
               <div class="bg-white shadow-lg max-w-lg pb-2 rounded-xl flex flex-col justify-between">
                 <div>
-                  <Image
-                    class='rounded-t-xl object-cover w-full aspect-[1000/615]'
-                    src={update.data.image}
-                    alt={update.data.title}
-                    loading={loading}
-                    width={500}
-                    height={300}
-                  />
+                    {update.data.image &&                   <Image
+                      class='rounded-t-xl object-cover w-full aspect-[1000/615]'
+                      src={update.data.image}
+                      alt={update.data.title}
+                      loading={loading}
+                      width={500}
+                      height={300}
+                    />}
                   <div class="mt-2 px-4">
                     <h2 class="text-lg font-medium text-center mx-auto w-fit">{update.data.title}</h2>
                     <p class="text-sm mt-1 text-gray-900">{update.data.description}</p>

@@ -54,13 +54,15 @@ const { Content, headings } = await render(update);
                   day: 'numeric'
                 })}</span>
                 <p>{update.data.description}</p>
-                <Image
-                  class=' rounded object-fit w-full'
-                  src={update.data.image}
-                  alt={update.data.title}
-                  width={672}
-                  height={300}
-                />
+                {update.data.image && (
+                  <Image
+                    class=' rounded object-fit w-full'
+                    src={update.data.image}
+                    alt={update.data.title}
+                    width={672}
+                    height={300}
+                  />
+                )}
             </div>
             <div class="my-4 prose">
                 <Content />
