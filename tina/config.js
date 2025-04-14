@@ -27,6 +27,48 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: "updates",
+        label: "Updates",
+        path: "src/content/updates",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            required: true,
+            isTitle: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Image",
+            required: false,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Short Description",
+            required: false,
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            required: false,
+            isBody: true,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "Date",
+            required: true,
+            ui: {
+              defaultValue: () => new Date().toISOString(),
+            },
+          },
+        ],
+      },
+      {
         name: "staff",
         label: "Staff",
         path: "src/content/staff",

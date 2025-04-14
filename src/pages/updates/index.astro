@@ -1,0 +1,92 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/500.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const updates = await getCollection('updates');
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/base/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content="{Astro.generator}" />
+    <meta
+      name="description"
+      content="Latest Updates from GIC Patlot. PM Shri Atal Utrisht SBSM GMIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand."
+    />
+    <meta
+      name="keywords"
+      content="PM Shri AU SBSM GMIC Patlot, AU SBSM GIC Patlot, GIC Patlot, Patlot, Atal Utkrisht, Shaheed Bahadur Singh Matiyali, SBSM"
+    />
+    <meta
+      property="og:title"
+      content="PM Shri Atal Utkrisht SBSM GMIC Patlot"
+    />
+    <meta
+      property="og:description"
+      content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand."
+    />
+    <meta property="og:image" content="https://gicpatlot.in/base/og.jpg" />
+    <meta property="og:url" content="https://gicpatlot.in/" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:title"
+      content="PM Shri Atal Utkrisht SBSM GMIC Patlot"
+    />
+    <meta
+      property="twitter:description"
+      content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand."
+    />
+    <meta property="twitter:image" content="https://gicpatlot.in/base/og.jpg" />
+    <title>Updates | PM Shri Atal Utkrisht SBSM GMIC Patlot</title>
+  </head>
+  <body class="bg-bgCol text-text">
+    <Navigation />
+    <main class="max-w-[120rem] m-auto px-4 md:px-10 2xl:px-12 pt-24 md:pt-28">
+      <h1 class="m-auto w-fit text-3xl md:text-4xl font-semibold">Latest Updates</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-12 mt-12">
+        {updates.map((update, i) => {
+          const loading = i < 10 ? 'eager' : 'lazy';
+          return (
+            <a class={update.body !== '\n' ? "cursor-pointer" : "cursor-default"} href={update.body !== '\n' ? `/updates/${update.slug}`: ""}>
+              <div class="bg-white shadow-lg max-w-lg pb-2 rounded-xl flex flex-col justify-between">
+                <div>
+                  <Image
+                    class='rounded-t-xl object-cover w-full aspect-[1000/615]'
+                    src={update.data.image}
+                    alt={update.data.title}
+                    loading={loading}
+                    width={500}
+                    height={300}
+                  />
+                  <div class="mt-2 px-4">
+                    <h2 class="text-lg font-medium text-center mx-auto w-fit">{update.data.title}</h2>
+                    <p class="text-sm mt-1 text-gray-900">{update.data.description}</p>
+                  </div>
+                </div>
+                <div class="mt-2 px-4 flex justify-between">
+                  <span class="text-xs font-medium">
+                    {new Date(update.data.date).toLocaleDateString('en-IN', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
+                  </span>
+                  {update.body !== '\n' ? <span class="text-xs font-medium">Read more</span> : null}
+                </div>
+              </div>
+            </a>
+          )
+        })}
+      </div>
+      <footer />
+    </main>
+  </body>
+</html>

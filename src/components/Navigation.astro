@@ -28,17 +28,18 @@ if (Astro.url.pathname === '/') {
           <a class="block py-2 px-4 w-full hover:bg-[#cfcfcf]" href="/documents"><span>Documents</span></a>
         </ul>
       </li>
-      <li class="hidden sm:block"><a href="/gallery">Gallery</a></li>
-      <li class="hidden sm:block"><a href="/results">Result</a></li>
+      <li class="hidden md:block"><a href="/updates">Updates</a></li>
+      <li class="hidden md:block"><a href="/gallery">Gallery</a></li>
+      <li class="hidden md:block"><a href="/results">Result</a></li>
       <li><a href="/contact">Contact</a></li>
-      <li id="burger" class=" sm:hidden w-8 px-1 flex flex-col gap-1 py-2">
+      <li id="burger" class=" md:hidden w-8 px-1 flex flex-col gap-1 py-2">
           <div class=" h-[2px] bg-text w-full"></div>
           <div class=" h-[2px] bg-text w-full"></div>
       </li>
     </ul>
   </nav>
 </div>
-<div id="menu" class="sm:hidden bg-secondary h-screen w-full flex flex-col items-center fixed inset-0 p-1 z-50 -translate-y-full rounded-b">
+<div id="menu" class="md:hidden bg-secondary h-screen w-full flex flex-col items-center fixed inset-0 p-1 z-50 -translate-y-full rounded-b">
   <div class="flex self-end items-center">
     <div id="close" class="p-1 hover:bg-[#b1d361] rounded-full">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -50,6 +51,7 @@ if (Astro.url.pathname === '/') {
     <div id="links" class="flex flex-col gap-2 md:gap-6 text-[clamp(2.5rem,5vw,7rem)] md:pr-8 md:border-r border-r-text text-center">
         <a href="/">Home</a>
         <a href="/about">About</a>
+        <a href="/updates">Updates</a>
         <a href="/gallery">Gallery</a>
         <a href="/contact">Contact</a>
         <a href="/staff">Staff</a>
