@@ -9,11 +9,11 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const results = await getCollection('results')
-  const years = results.map((r) => r.slug)
+  const years = results.map((r) => r.slug).reverse()
   return [
     {
       params: { year: undefined },
-      props: { result: results[0].data, years }
+      props: { result: results[results.length - 1].data, years }
     },
     ...results.map((r) => ({
       params: { year: r.slug },
