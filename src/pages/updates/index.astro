@@ -55,7 +55,7 @@ const updates = await getCollection('updates');
         {updates.map((update, i) => {
           const loading = i < 10 ? 'eager' : 'lazy';
           return (
-            <a class={update.body !== '\n' ? "cursor-pointer" : "cursor-default"} href={update.body !== '\n' ? `/updates/${update.slug}`: ""}>
+            <a class={update.body !== '\n' ? "cursor-pointer" : "cursor-default pointer-events-none"} href={update.body !== '\n' ? `/updates/${update.slug}`: ""}>
               <div class="bg-white shadow-lg max-w-lg pb-2 rounded-xl flex flex-col justify-between">
                 <div>
                     {update.data.image &&                   <Image
