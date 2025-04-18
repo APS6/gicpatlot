@@ -1,5 +1,5 @@
 ---
-title: Exposure visit session 2024_25
+title: Exposure visit
 image: /IMG_20250417_123634834_HDR.jpg
 description: 'Exposure visit of class IX and XI for session 2024_25 '
 date: 2025-04-16T18:30:00.000Z
