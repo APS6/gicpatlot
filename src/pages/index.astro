@@ -31,6 +31,52 @@ import Footer from '../components/Footer.astro';
 		<meta property="twitter:description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand.">
 		<meta property="twitter:image" content="https://gicpatlot.in/base/og.jpg">
 		<title>PM Shri Atal Utkrisht SBSM GIC Patlot</title>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "EducationalOrganization",
+				"name": "PM Shri Atal Utkrisht SBSM GMIC Patlot",
+				"description": "PM Shri Atal Utrisht SBSM GMIC Patlot is a CBSE affiliated school providing high-quality education in Patlot, Okhalkanda block, Nainital Uttarakhand.",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Patlot",
+					"addressRegion": "Okhalkanda, Nainital",
+					"addressCountry": "India"
+				},
+				"url": "https://gicpatlot.in",
+				"image": "https://gicpatlot.in/base/og.jpg",
+				"principal": {
+					"@type": "Person",
+					"name": "Ashutosh Sah",
+					"jobTitle": "Principal"
+				},
+				"teaches": ["Physics", "Mathematics", "Science", "English", "Hindi", "Humanities", "Biology", "Chemistry", "Computer", "Sanskrit"],
+				"offers": {
+					"@type": "Offer",
+					"description": "Free uniform, textbooks, and mid-day meals for students"
+				},
+				"hasOfferCatalog": {
+					"@type": "OfferCatalog",
+					"name": "School Facilities",
+					"itemListElement": [
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Smart Classrooms"
+							}
+						},
+						{
+							"@type": "Offer",
+							"itemOffered": {
+								"@type": "Service",
+								"name": "Sports Facilities"
+							}
+						}
+					]
+				}
+			}
+		</script>
 	</head>
 	<body class=" bg-bgCol text-text">
 		<Navigation />
