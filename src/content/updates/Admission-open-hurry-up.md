@@ -1,6 +1,6 @@
 ---
-title: Admission open hurry up
-image: /VID-20250402-WA0007.mp4
+title: 'Admission open , hurry up, come soon'
+image: /Screenshot_20250419-192629.png
 date: 2025-03-31T18:30:00.000Z
 ---
 
