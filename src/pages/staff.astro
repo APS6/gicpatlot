@@ -52,7 +52,7 @@ staff.sort((a, b) => {
 				{staff.map((member) => {
 					let designation = member.data.designation.includes("Principal") ? member.data.designation.replace("Principal", "Principal\n") : member.data.designation
 					const formattedDate = member.data.dateOfJoining ? new Date(member.data.dateOfJoining).toLocaleDateString('en-IN', {
-						day: '2-digit',
+						day: 'numeric',
 						month: 'short',
 						year: 'numeric'
 					}) : "";
