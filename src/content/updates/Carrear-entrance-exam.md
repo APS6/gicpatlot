@@ -1,6 +1,7 @@
 ---
-title: Career entrance exam
+title: Career entrance
 image: /IMG-20250201-WA0026.jpg
-description: 'By Dr Lalit Joshi Carrear counselling centre haldwani '
+description: 'Aptitude & Interest Assessment Test by Resource persons from CREEP, Haldwani'
 date: 2025-01-31T18:30:00.000Z
 ---
+
