@@ -56,9 +56,10 @@ updates.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).v
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-12 mt-12">
         {updates.map((update, i) => {
           const loading = i < 10 ? 'eager' : 'lazy';
+          console.log(update)
           return (
-            <a class={update.body !== '\n' ? "cursor-pointer" : "cursor-default pointer-events-none"} href={update.body !== '\n' ? `/updates/${update.slug}`: ""}>
-              <div class="bg-white shadow-lg max-w-lg pb-2 rounded-xl flex flex-col justify-between">
+            <a class={update.body ? "cursor-pointer" : "cursor-default pointer-events-none"} href={update.body !== '\n' ? `/updates/${update.slug}`: ""}>
+              <div class="bg-white shadow-lg max-w-lg h-full pb-2 rounded-xl flex flex-col justify-between">
                 <div>
                     {update.data.image &&                   <Image
                       class='rounded-t-xl object-cover w-full aspect-[1000/615]'
@@ -81,7 +82,7 @@ updates.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).v
                       day: 'numeric'
                     })}
                   </span>
-                  {update.body !== '\n' ? <span class="text-xs font-medium">Read more</span> : null}
+                  {update.body ? <span class="text-xs font-medium">Read more</span> : null}
                 </div>
               </div>
             </a>
