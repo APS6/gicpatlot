@@ -1,5 +1,5 @@
 ---
-title: Carrear counselling speech session
+title: Career counselling speech session
 image: /IMG-20250201-WA0034.jpg
 description: >-
   Group Career Counselling  Talk by Dr. LM Joshi, Educator & Counsellor, Centre
