@@ -11,6 +11,11 @@ import gridImage2 from "../images/gridImage-2.webp"
 import gridImage3 from "../images/gridImage-3.webp"
 import gridImage4 from "../images/gridImage-4.webp"
 import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const updates = await getCollection('updates');
+updates.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+
 ---
 
 <html lang="en">
@@ -90,18 +95,18 @@ import Footer from '../components/Footer.astro';
 				<div class="pt-12 overflow-y-hidden flex-1"><div id="line" class=" bg-bgCol h-[97%] w-[1px]"></div></div>
 				<div style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));" class="absolute bottom-0 left-0 right-0 w-full h-32"></div>
 			</header>
-			<div class="px-4 md:px-10 2xl:px-12">
-				<section class="py-12 md:py-20">
+			<div class="">
+				<section class="px-4 md:px-10 2xl:px-12 py-12 md:py-20">
 					<p class=" text-[clamp(1.35rem,3vw,3.5rem)] font-medium text-center">"At PM Shri Atal Utkrish SBSM GMIC Patlot we strive to provide the best quality education to our students. Our school is affiliated with CBSE and follows the CBSE standards."</p>
 				</section>
-				<section class="flex flex-col md:flex-row gap-12 justify-between items-center py-12 md:py-20">
+				<section class="flex flex-col md:flex-row gap-12 justify-between items-center py-12 md:py-20 px-4 md:px-10 2xl:px-12">
 					<div class=" md:w-1/2 max-w-2xl">
 						<h2 class="text-4xl xl:text-[2.5rem] pb-4 font-medium">Our Principal</h2>
 						<p class="text-lg md:text-xl xl:text-2xl xl:leading-relaxed">Our school's Principal Mr. Ashutosh Sah is a lecturer in Physics who has been guiding the school for the last 3 years. He has been a part of the school for a long time. He is a seasoned educator and leader.</p>
 					</div>
 					<Image class='rounded-full xl:mr-16' src={principalImg} alt='Principal Ashutosh Sah'/>
 				</section>
-				<section class="py-12 md:py-20">
+				<section class="py-12 md:py-20 px-4 md:px-10 2xl:px-12">
 					<h2 class="text-4xl pb-3">Our Campus</h2>
 					<div class="border-y border-y-text">
 						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 ">
@@ -118,24 +123,58 @@ import Footer from '../components/Footer.astro';
 						</div>
 					</div>
 				</section>
-				<section class="py-12 md:py-20 flex flex-col items-center gap-4">
+				<section class="py-12 md:py-20 flex flex-col items-center gap-6 px-4 md:px-10 2xl:px-12">
 					<h2 class="text-4xl xl:text-[2.5rem] font-medium block relative after:absolute after:bg-secondary after:w-[110%] after:h-5 after:left-[-5%] after:right-[-5%] after:top-[55%] after:-z-10">Our Facilities</h2>
 					<div class="flex flex-col md:flex-row gap-6">
 						<div class="bg-[#D8E8C3] rounded p-4">
 							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Smart Classrooms</h3>
-							<p class="md:text-lg xl:text-xl">Classrooms equipped with projector and smart board to encourage interactive learning</p>
+							<p class="md:text-lg text-gray-800">Classrooms equipped with projector and smart board to encourage interactive learning</p>
 						</div>
 						<div class="bg-[#D8E8C3] rounded p-4">
 							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Free uniform and textboook</h3>
-							<p class="md:text-lg xl:text-xl">To encourage underprivileged students to attend school, free uniform and textbooks are provided by our school to all children.</p>
+							<p class="md:text-lg text-gray-800">To encourage underprivileged students to attend school, free uniform and textbooks are provided by our school to all children.</p>
 						</div>
 						<div class="bg-[#D8E8C3] rounded p-4">
 							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Mid-day meal</h3>
-							<p class="md:text-lg xl:text-xl">Students are provided freshly prepared mid day meal at school everyday.</p>
+							<p class="md:text-lg text-gray-800">Students are provided freshly prepared mid day meal at school everyday.</p>
 						</div>
 					</div>
 				</section>
-				<section class="py-12 md:py-20">
+				<section class="py-4 my-12 md:my-16 flex flex-col md:flex-row justify-between gap-4 items-center bg-[#D8E8C3] px-4 md:px-10 2xl:px-12">
+				<div class="flex flex-col items-center md:items-start ">
+				<h2 class="text-4xl font-semibold">Latest Updates</h2>
+				<p class="text-xl mt-2 text-gray-800">Stay informed about our latest news and activities</p>
+				<a href="/updates" class="block w-fit mt-3 text-xl py-2 px-6 bg-green-900 text-white rounded">View More</a>
+				</div>
+				<div class="flex flex-col md:flex-row mt-6 md:mt-0 gap-4 justify-between">
+                        {updates.slice(0,3).map((u) =>
+                        <a href={u.body !== '\n' ? `/updates/${u.slug}`: ""} class="bg-white max-w-sm pb-2 rounded-xl flex-1 flex flex-col justify-between">
+                               <div> {u.data.image &&                   <Image
+                                  class='rounded-t-xl object-cover w-full aspect-[1000/615]'
+                                  src={u.data.image}
+                                  alt={u.data.title}
+                                  width={500}
+                                  height={300}
+                                />}
+                              <div class="mt-2 px-4">
+                                <h3 class="font-medium">{u.data.title}</h3>
+                                <p class="text-sm mt-1 text-gray-900">{u.data.description}</p>
+                              </div>
+                               </div>
+                              <div class="mt-2 px-4 flex justify-between">
+                                <span class="text-xs font-medium">
+                                  {new Date(u.data.date).toLocaleDateString('en-IN', {
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric'
+                                  })}
+                                </span>
+                                {u.body ? <span class="text-xs font-medium">Read more</span> : null}
+                              </div>
+                        </a>)}
+                    </div>
+				</section>
+				<section class="py-12 md:py-20 px-4 md:px-10 2xl:px-12">
 					<div class="flex gap-6 flex-col md:flex-row pb-6">
 						<Image class="pop-image rounded w-full md:w-[60%] object-cover" loading='lazy' src={gridImage1} data-popover-src="/gallery/gal-img.jpg" alt='students in India formation'/>
 						<Image class="pop-image rounded w-full md:w-[40%] object-cover" loading='lazy' src={gridImage2} data-popover-src="/gallery/img22.jpg" alt='khel Mahotsav'/>
@@ -148,7 +187,7 @@ import Footer from '../components/Footer.astro';
 						<a href="/gallery" class="mx-auto block w-fit h-fit text-xl py-2 px-6 bg-secondary rounded">View More</a>
 					</div>
 				</section>
-				<Footer />
+				<div class="px-4 md:px-10 2xl:px-12"><Footer/></div>
 				<div id="popover" class=" hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2">
 					<img class="max-w-[80%] max-h-[80vh] object-contain" id="popoverImage" src="" alt="">
 				</div>
