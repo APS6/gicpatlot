@@ -194,6 +194,12 @@ export default defineConfig({
                     label: "Percentage",
                     required: true,
                   },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Student Image",
+                    required: true,
+                  },
                 ],
               },
               {
@@ -255,6 +261,12 @@ export default defineConfig({
                     type: "number",
                     name: "percentage",
                     label: "Percentage",
+                    required: true,
+                  },
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Student Image",
                     required: true,
                   },
                 ],
