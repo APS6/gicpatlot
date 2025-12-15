@@ -1,5 +1,5 @@
 ---
 name: Fire Safety Certificate
-image: /documents/Fire-Saftey.pdf
+image: /fire safety certificate_renwal_till_2028.pdf
 ---
 
