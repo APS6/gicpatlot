@@ -1,152 +1,314 @@
 ---
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/500.css';
-import '@fontsource/poppins/600.css';
-import '@fontsource/poppins/700.css';
-import Navigation from '../components/Navigation.astro';
-import { Image } from 'astro:assets';
-import principalImg from "../images/principal.jpg"
-import gridImage1 from "../images/gridImage-1.webp"
-import gridImage2 from "../images/gridImage-2.webp"
-import gridImage3 from "../images/gridImage-3.webp"
-import gridImage4 from "../images/gridImage-4.webp"
-import Footer from '../components/Footer.astro';
-import { getCollection, getEntry } from 'astro:content';
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import Navigation from "../components/Navigation.astro";
+import { Image } from "astro:assets";
+import principalImg from "../images/principal.jpg";
+import gridImage1 from "../images/gridImage-1.webp";
+import gridImage2 from "../images/gridImage-2.webp";
+import gridImage3 from "../images/gridImage-3.webp";
+import gridImage4 from "../images/gridImage-4.webp";
+import Footer from "../components/Footer.astro";
+import { getCollection, getEntry } from "astro:content";
 
-const updates = await getCollection('updates');
-updates.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+const updates = await getCollection("updates");
+updates.sort(
+    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+);
 
-const { data: result} = await getEntry('results', '2025')
+const { data: result } = await getEntry("results", "2025");
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="/base/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta name="description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GMIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand." />
-		<meta name="keywords" content="PM Shri AU SBSM GMIC Patlot, AU SBSM GIC Patlot, GIC Patlot, Patlot, Atal Utkrisht, Shaaheed Bahadur Singh Matiyali, SBSM">
-		<meta property="og:title" content="PM Shri Atal Utkrisht SBSM GMIC Patlot">
-		<meta property="og:description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand.">
-		<meta property="og:image" content="https://gicpatlot.in/base/og.jpg">
-		<meta property="og:url" content="https://gicpatlot.in/">
-		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:title" content="PM Shri Atal Utkrisht SBSM GMIC Patlot">
-		<meta property="twitter:description" content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand.">
-		<meta property="twitter:image" content="https://gicpatlot.in/base/og.jpg">
-		<title>PM Shri Atal Utkrisht SBSM GIC Patlot</title>
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "EducationalOrganization",
-				"name": "PM Shri Atal Utkrisht SBSM GMIC Patlot",
-				"description": "PM Shri Atal Utrisht SBSM GMIC Patlot is a CBSE affiliated school providing high-quality education in Patlot, Okhalkanda block, Nainital Uttarakhand.",
-				"address": {
-					"@type": "PostalAddress",
-					"addressLocality": "Patlot",
-					"addressRegion": "Okhalkanda, Nainital",
-					"addressCountry": "India"
-				},
-				"url": "https://gicpatlot.in",
-				"image": "https://gicpatlot.in/base/og.jpg",
-				"principal": {
-					"@type": "Person",
-					"name": "Ashutosh Sah",
-					"jobTitle": "Principal"
-				},
-				"teaches": ["Physics", "Mathematics", "Science", "English", "Hindi", "Humanities", "Biology", "Chemistry", "Computer", "Sanskrit"],
-				"offers": {
-					"@type": "Offer",
-					"description": "Free uniform, textbooks, and mid-day meals for students"
-				},
-				"hasOfferCatalog": {
-					"@type": "OfferCatalog",
-					"name": "School Facilities",
-					"itemListElement": [
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Smart Classrooms"
-							}
-						},
-						{
-							"@type": "Offer",
-							"itemOffered": {
-								"@type": "Service",
-								"name": "Sports Facilities"
-							}
-						}
-					]
-				}
-			}
-		</script>
-	</head>
-	<body class=" bg-bgCol text-text">
-		<Navigation />
-		<main class="max-w-[120rem] m-auto overflow-x-hidden">
-			<header class="h-screen relative w-full flex flex-col items-center pt-72 px-4 md:pt-48 bg-[url(/base/bg-m.webp)] md:bg-[url(/base/bg-black.webp)] bg-cover bg-bottom">
-				<!-- <div class="py-2 bg-secondary px-1 absolute top-[73px] left-0 right-0">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/base/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <meta
+            name="description"
+            content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GMIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand."
+        />
+        <meta
+            name="keywords"
+            content="PM Shri AU SBSM GMIC Patlot, AU SBSM GIC Patlot, GIC Patlot, Patlot, Atal Utkrisht, Shaaheed Bahadur Singh Matiyali, SBSM"
+        />
+        <meta
+            property="og:title"
+            content="PM Shri Atal Utkrisht SBSM GMIC Patlot"
+        />
+        <meta
+            property="og:description"
+            content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand."
+        />
+        <meta property="og:image" content="https://gicpatlot.in/base/og.jpg" />
+        <meta property="og:url" content="https://gicpatlot.in/" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:title"
+            content="PM Shri Atal Utkrisht SBSM GMIC Patlot"
+        />
+        <meta
+            property="twitter:description"
+            content="Official website for GIC Patlot. PM Shri Atal Utrisht SBSM GIC Patlot is a school affiliated with CBSE. It is situated in Patlot, Okhalkanda block, Nainital Uttarakhand."
+        />
+        <meta
+            property="twitter:image"
+            content="https://gicpatlot.in/base/og.jpg"
+        />
+        <title>PM Shri Atal Utkrisht SBSM GIC Patlot</title>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "EducationalOrganization",
+                "name": "PM Shri Atal Utkrisht SBSM GMIC Patlot",
+                "description": "PM Shri Atal Utrisht SBSM GMIC Patlot is a CBSE affiliated school providing high-quality education in Patlot, Okhalkanda block, Nainital Uttarakhand.",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Patlot",
+                    "addressRegion": "Okhalkanda, Nainital",
+                    "addressCountry": "India"
+                },
+                "url": "https://gicpatlot.in",
+                "image": "https://gicpatlot.in/base/og.jpg",
+                "principal": {
+                    "@type": "Person",
+                    "name": "Ashutosh Sah",
+                    "jobTitle": "Principal"
+                },
+                "teaches": [
+                    "Physics",
+                    "Mathematics",
+                    "Science",
+                    "English",
+                    "Hindi",
+                    "Humanities",
+                    "Biology",
+                    "Chemistry",
+                    "Computer",
+                    "Sanskrit"
+                ],
+                "offers": {
+                    "@type": "Offer",
+                    "description": "Free uniform, textbooks, and mid-day meals for students"
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "School Facilities",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Smart Classrooms"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Sports Facilities"
+                            }
+                        }
+                    ]
+                }
+            }
+        </script>
+    </head>
+    <body class="bg-bgCol text-text">
+        <Navigation />
+        <main class="max-w-[120rem] m-auto overflow-x-hidden">
+            <header
+                class="h-screen relative w-full flex flex-col items-center pt-72 px-4 md:pt-48 bg-[url(/base/hero-mobile.webp)] md:bg-[url(/base/hero.webp)] bg-cover bg-bottom"
+            >
+                <!-- <div class="py-2 bg-secondary px-1 absolute top-[73px] left-0 right-0">
     				<p class="mx-auto w-fit text-sm md:text-lg text-center">No Board Fees! Registration and board fees waived by the government. पंजीकरण और बोर्ड फीस सरकार द्वारा माफ!</p>
  			  	</div> -->
-				<h1 class="text-[clamp(2rem,6.25vw,7.6rem)] font-bold text-center text-bgCol">Empowering Minds <br> Building Dreams</h1>
-				<p class=" text-lg md:text-2xl pt-5 text-center max-w-lg text-bgCol">Affordable and High-Quality Education for all at PM Shri Atal Utkrisht SBSM GMIC Patlot.</p>
-				<div class="pt-12 overflow-y-hidden flex-1"><div id="line" class=" bg-bgCol h-[97%] w-[1px]"></div></div>
-				<div style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));" class="absolute bottom-0 left-0 right-0 w-full h-32"></div>
-			</header>
-			<div class="">
-				<section class="px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto py-12 md:py-20">
-					<p class=" text-[clamp(1.35rem,3vw,3.5rem)] font-medium text-center">"At PM Shri Atal Utkrish SBSM GMIC Patlot we strive to provide the best quality education to our students. Our school is affiliated with CBSE and follows the CBSE standards."</p>
-				</section>
-				<section class="flex flex-col md:flex-row gap-12 justify-between items-center py-12 md:py-20 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto">
-					<div class=" md:w-1/2 max-w-2xl">
-						<h2 class="text-4xl xl:text-[2.5rem] pb-4 font-medium">Our Principal</h2>
-						<p class="text-lg md:text-xl xl:text-2xl xl:leading-relaxed">Our school's Principal Mr. Ashutosh Sah is a lecturer in Physics who has been guiding the school for the last 3 years. He has been a part of the school for a long time. He is a seasoned educator and leader.</p>
-					</div>
-					<Image class='rounded-full xl:mr-16' src={principalImg} alt='Principal Ashutosh Sah'/>
-				</section>
-				<section class="my-12 md:my-20 py-8 md:px-10 2xl:px-12 bg-[rgb(196,234,147)] flex flex-col md:flex-row justify-between items-center">
+                <h1
+                    class="text-[clamp(2rem,6.25vw,7.6rem)] font-bold text-center text-bgCol"
+                >
+                    Empowering Minds <br /> Building Dreams
+                </h1>
+                <p
+                    class="text-lg md:text-2xl pt-5 text-center max-w-lg text-bgCol"
+                >
+                    Affordable and High-Quality Education for all at PM Shri
+                    Atal Utkrisht SBSM GMIC Patlot.
+                </p>
+                <div class="pt-12 overflow-y-hidden flex-1">
+                    <div id="line" class="bg-bgCol h-[97%] w-[1px]"></div>
+                </div>
+                <div
+                    style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));"
+                    class="absolute bottom-0 left-0 right-0 w-full h-32"
+                >
+                </div>
+            </header>
+            <div class="">
+                <section
+                    class="px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto py-12 md:py-20"
+                >
+                    <p
+                        class="text-[clamp(1.35rem,3vw,3.5rem)] font-medium text-center"
+                    >
+                        "At PM Shri Atal Utkrish SBSM GMIC Patlot we strive to
+                        provide the best quality education to our students. Our
+                        school is affiliated with CBSE and follows the CBSE
+                        standards."
+                    </p>
+                </section>
+                <section
+                    class="flex flex-col md:flex-row gap-12 justify-between items-center py-12 md:py-20 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto"
+                >
+                    <div class="md:w-1/2 max-w-2xl">
+                        <h2 class="text-4xl xl:text-[2.5rem] pb-4 font-medium">
+                            Our Principal
+                        </h2>
+                        <p
+                            class="text-lg md:text-xl xl:text-2xl xl:leading-relaxed"
+                        >
+                            Our school's Principal Mr. Ashutosh Sah is a
+                            lecturer in Physics who has been guiding the school
+                            for the last 3 years. He has been a part of the
+                            school for a long time. He is a seasoned educator
+                            and leader.
+                        </p>
+                    </div>
+                    <Image
+                        class="rounded-full xl:mr-16"
+                        src={principalImg}
+                        alt="Principal Ashutosh Sah"
+                    />
+                </section>
+                <section
+                    class="my-12 md:my-20 py-8 md:px-10 2xl:px-12 bg-[rgb(196,234,147)] flex flex-col md:flex-row justify-between items-center"
+                >
                     <div>
-                        <h2 class="text-5xl xl:text-6xl font-semibold"><span class="text-6xl xl:text-7xl font-bold">100%</span> Result</h2>
-                        <span class="text-2xl xl:text-3xl">In High School and Inter</span>
-                    	<a href="/results" class="block w-fit mt-4 mx-auto md:mx-0 text-lg py-2 px-6 bg-green-900 text-white rounded">View Result</a>
+                        <h2 class="text-5xl xl:text-6xl font-semibold">
+                            <span class="text-6xl xl:text-7xl font-bold"
+                                >100%</span
+                            > Result
+                        </h2>
+                        <span class="text-2xl xl:text-3xl"
+                            >In High School and Inter</span
+                        >
+                        <a
+                            href="/results"
+                            class="block w-fit mt-4 mx-auto md:mx-0 text-lg py-2 px-6 bg-green-900 text-white rounded"
+                            >View Result</a
+                        >
                     </div>
 
                     <div class="w-[90%] md:w-1/2">
-                        <h2 class="mx-auto w-fit text-4xl font-semibold mt-16 md:mt-0">Our Toppers</h2>
-                        <div class="flex flex-col sm:flex-row justify-between gap-16 w-full mt-4 md:mt-8">
+                        <h2
+                            class="mx-auto w-fit text-4xl font-semibold mt-16 md:mt-0"
+                        >
+                            Our Toppers
+                        </h2>
+                        <div
+                            class="flex flex-col sm:flex-row justify-between gap-16 w-full mt-4 md:mt-8"
+                        >
                             <!-- Class XII Students Carousel -->
 
                             <div class="w-full">
-                                <h3 class="mx-auto w-fit text-2xl font-medium mb-2">Class XII</h3>
-                                <div id="inter-carousel" class="relative w-full max-w-80 mx-auto">
-                                    <div id="inter-slides" class="relative h-80">
-                                        {result.interResults.topFiveStudents.slice(0, 3).map(((student, i) => (
-                                            <div class={`carousel-slide absolute inset-0 flex flex-col items-center justify-between bg-[rgb(249,255,248)] rounded-xl py-4 px-6 text-center transition-opacity duration-300 ease-in-out ${i === 0 ? "opacity-100 visible z-10" : "opacity-0 invisible z-0"}`}>
-                                                {student.image ? <Image class='max-w-48 mx-auto mb-2 rounded-full aspect-square object-cover' src={student.image} alt={student.name} width={400} height={400}/> : ""}
-                                                <div>
-                                                    <h4 class="text-2xl">{student.name}</h4>
-                                                    <span class="text-2xl mt-2">{student.percentage}%</span>
-                                                </div>
-                                            </div>
-                                        )))}
+                                <h3
+                                    class="mx-auto w-fit text-2xl font-medium mb-2"
+                                >
+                                    Class XII
+                                </h3>
+                                <div
+                                    id="inter-carousel"
+                                    class="relative w-full max-w-80 mx-auto"
+                                >
+                                    <div
+                                        id="inter-slides"
+                                        class="relative h-80"
+                                    >
+                                        {
+                                            result.interResults.topFiveStudents
+                                                .slice(0, 3)
+                                                .map((student, i) => (
+                                                    <div
+                                                        class={`carousel-slide absolute inset-0 flex flex-col items-center justify-between bg-[rgb(249,255,248)] rounded-xl py-4 px-6 text-center transition-opacity duration-300 ease-in-out ${i === 0 ? "opacity-100 visible z-10" : "opacity-0 invisible z-0"}`}
+                                                    >
+                                                        {student.image ? (
+                                                            <Image
+                                                                class="max-w-48 mx-auto mb-2 rounded-full aspect-square object-cover"
+                                                                src={
+                                                                    student.image
+                                                                }
+                                                                alt={
+                                                                    student.name
+                                                                }
+                                                                width={400}
+                                                                height={400}
+                                                            />
+                                                        ) : (
+                                                            ""
+                                                        )}
+                                                        <div>
+                                                            <h4 class="text-2xl">
+                                                                {student.name}
+                                                            </h4>
+                                                            <span class="text-2xl mt-2">
+                                                                {
+                                                                    student.percentage
+                                                                }
+                                                                %
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                        }
                                     </div>
 
-                                    <button id="inter-prev" aria-label="previous Inter topper" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                    <button
+                                        id="inter-prev"
+                                        aria-label="previous Inter topper"
+                                        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20"
+                                    >
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <polyline points="15 18 9 12 15 6"
+                                            ></polyline>
                                         </svg>
                                     </button>
 
-                                    <button id="inter-next" aria-label="next Inter topper" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                    <button
+                                        id="inter-next"
+                                        aria-label="next Inter topper"
+                                        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20"
+                                    >
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <polyline points="9 18 15 12 9 6"
+                                            ></polyline>
                                         </svg>
                                     </button>
 
-                                    <div id="inter-dots" class="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+                                    <div
+                                        id="inter-dots"
+                                        class="absolute bottom-2 left-0 right-0 flex justify-center gap-2"
+                                    >
                                         <!-- Dots will be populated by JavaScript -->
                                     </div>
                                 </div>
@@ -154,33 +316,101 @@ const { data: result} = await getEntry('results', '2025')
 
                             <!-- Class X Students Carousel -->
                             <div class="w-full">
-                                <h3 class="mx-auto w-fit text-2xl font-medium mb-2">Class X</h3>
-                                <div id="high-school-carousel" class="relative w-full max-w-80 mx-auto">
-                                    <div id="high-school-slides" class="relative h-80">
-                                        {result.highSchoolResults.topFiveStudents.slice(0, 3).map(((student, i) => (
-                                            <div class={`carousel-slide absolute inset-0 flex flex-col items-center justify-between bg-[rgb(249,255,248)] rounded-xl py-4 px-6 text-center transition-opacity duration-300 ease-in-out ${i === 0 ? "opacity-100 visible z-10" : "opacity-0 invisible z-0"}`}>
-                                                {student.image ? <Image class='max-w-48 mx-auto mb-2 rounded-full aspect-square object-cover' src={student.image} alt={student.name} width={400} height={400}/> : ""}
-                                                <div>
-                                                    <h4 class="text-2xl">{student.name}</h4>
-                                                    <span class="text-2xl mt-2">{student.percentage}%</span>
-                                                </div>
-                                            </div>
-                                        )))}
+                                <h3
+                                    class="mx-auto w-fit text-2xl font-medium mb-2"
+                                >
+                                    Class X
+                                </h3>
+                                <div
+                                    id="high-school-carousel"
+                                    class="relative w-full max-w-80 mx-auto"
+                                >
+                                    <div
+                                        id="high-school-slides"
+                                        class="relative h-80"
+                                    >
+                                        {
+                                            result.highSchoolResults.topFiveStudents
+                                                .slice(0, 3)
+                                                .map((student, i) => (
+                                                    <div
+                                                        class={`carousel-slide absolute inset-0 flex flex-col items-center justify-between bg-[rgb(249,255,248)] rounded-xl py-4 px-6 text-center transition-opacity duration-300 ease-in-out ${i === 0 ? "opacity-100 visible z-10" : "opacity-0 invisible z-0"}`}
+                                                    >
+                                                        {student.image ? (
+                                                            <Image
+                                                                class="max-w-48 mx-auto mb-2 rounded-full aspect-square object-cover"
+                                                                src={
+                                                                    student.image
+                                                                }
+                                                                alt={
+                                                                    student.name
+                                                                }
+                                                                width={400}
+                                                                height={400}
+                                                            />
+                                                        ) : (
+                                                            ""
+                                                        )}
+                                                        <div>
+                                                            <h4 class="text-2xl">
+                                                                {student.name}
+                                                            </h4>
+                                                            <span class="text-2xl mt-2">
+                                                                {
+                                                                    student.percentage
+                                                                }
+                                                                %
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                        }
                                     </div>
 
-                                    <button id="high-school-prev" aria-label="previous high school topper" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="15 18 9 12 15 6"></polyline>
+                                    <button
+                                        id="high-school-prev"
+                                        aria-label="previous high school topper"
+                                        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20"
+                                    >
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <polyline points="15 18 9 12 15 6"
+                                            ></polyline>
                                         </svg>
                                     </button>
 
-                                    <button id="high-school-next" aria-label="next high school topper" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                    <button
+                                        id="high-school-next"
+                                        aria-label="next high school topper"
+                                        class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-[rgb(249,255,248)] p-2 rounded-full shadow-lg hover:bg-gray-100 z-20"
+                                    >
+                                        <svg
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        >
+                                            <polyline points="9 18 15 12 9 6"
+                                            ></polyline>
                                         </svg>
                                     </button>
 
-                                    <div id="high-school-dots" class="absolute bottom-2 left-0 right-0 flex justify-center gap-2">
+                                    <div
+                                        id="high-school-dots"
+                                        class="absolute bottom-2 left-0 right-0 flex justify-center gap-2"
+                                    >
                                         <!-- Dots will be populated by JavaScript -->
                                     </div>
                                 </div>
@@ -188,95 +418,222 @@ const { data: result} = await getEntry('results', '2025')
                         </div>
                     </div>
                 </section>
-				<section class="py-12 md:py-20 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto">
-					<h2 class="text-4xl pb-3">Our Campus</h2>
-					<div class="border-y border-y-text">
-						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 items-center">
-							<h3 class="text-5xl md:text-6xl xl:text-7xl font-semibold">Tech Enabled</h3>
-							<p class="text-lg xl:text-xl md:w-[50%]">Our school harnesses the power of technology to enhance education, employing smart classes, virtual sessions, and computer lessons</p>
-						</div>
-						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 items-center border-y border-y-text">
-							<h3 class="text-5xl md:text-6xl xl:text-7xl font-semibold">Sports</h3>
-							<p class="text-lg xl:text-xl md:w-[50%]">Our school supports sports with a big playground and a basketball court, all set up with the needed equipment</p>
-						</div>
-						<div class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 items-center">
-							<h3 class="text-5xl md:text-6xl xl:text-7xl font-semibold">Clean spaces</h3>
-							<p class="text-lg xl:text-xl md:w-[50%]">Prioritizing cleanliness and hygiene, our school maintains pristine surroundings to ensure a healthy learning environment for all students.</p>
-						</div>
-					</div>
-				</section>
-				<section class="py-12 md:py-20 flex flex-col items-center gap-6 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto">
-					<h2 class="text-4xl xl:text-[2.5rem] font-medium block relative after:absolute after:bg-secondary after:w-[110%] after:h-5 after:left-[-5%] after:right-[-5%] after:top-[55%] after:-z-10">Our Facilities</h2>
-					<div class="flex flex-col md:flex-row gap-6">
-						<div class="bg-[#D8E8C3] rounded p-4">
-							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Smart Classrooms</h3>
-							<p class="md:text-lg text-gray-800">Classrooms equipped with projector and smart board to encourage interactive learning</p>
-						</div>
-						<div class="bg-[#D8E8C3] rounded p-4">
-							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Free uniform and textboook</h3>
-							<p class="md:text-lg text-gray-800">To encourage underprivileged students to attend school, free uniform and textbooks are provided by our school to all children.</p>
-						</div>
-						<div class="bg-[#D8E8C3] rounded p-4">
-							<h3 class="text-2xl xl:text-3xl pb-3 font-medium">Mid-day meal</h3>
-							<p class="md:text-lg text-gray-800">Students are provided freshly prepared mid day meal at school everyday.</p>
-						</div>
-					</div>
-				</section>
-				<section class="py-8 md:py-4 my-12 md:my-16 flex flex-col md:flex-row justify-between gap-4 items-center bg-[rgb(196,234,147)] px-4 md:px-10 2xl:px-12 ">
-				<div class="flex flex-col items-center md:items-start ">
-				<h2 class="text-4xl font-semibold">Latest Updates</h2>
-				<p class="text-xl mt-2 text-gray-800">Stay informed about our latest news and activities</p>
-				<a href="/updates" class="block w-fit mt-3 text-lg py-2 px-6 bg-green-900 text-white rounded">View All</a>
-				</div>
-				<div class="flex flex-col md:flex-row mt-6 md:mt-0 gap-4 justify-between">
-                        {updates.slice(0,3).map((u) =>
-                        <a href={u.body !== '\n' ? `/updates/${u.slug}`: ""} class="bg-white max-w-sm pb-2 rounded-xl flex-1 flex flex-col justify-between">
-                               <div> {u.data.image &&                   <Image
-                                  class='rounded-t-xl object-cover w-full aspect-[1000/615]'
-                                  src={u.data.image}
-                                  alt={u.data.title}
-                                  width={500}
-                                  height={300}
-                                />}
-                              <div class="mt-2 px-4">
-                                <h3 class="font-medium">{u.data.title}</h3>
-                                <p class="text-sm mt-1 text-gray-900">{u.data.description}</p>
-                              </div>
-                               </div>
-                              <div class="mt-2 px-4 flex justify-between">
-                                <span class="text-xs font-medium">
-                                  {new Date(u.data.date).toLocaleDateString('en-IN', {
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: 'numeric'
-                                  })}
-                                </span>
-                                {u.body ? <span class="text-xs font-medium">Read more</span> : null}
-                              </div>
-                        </a>)}
+                <section
+                    class="py-12 md:py-20 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto"
+                >
+                    <h2 class="text-4xl pb-3">Our Campus</h2>
+                    <div class="border-y border-y-text">
+                        <div
+                            class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 items-center"
+                        >
+                            <h3
+                                class="text-5xl md:text-6xl xl:text-7xl font-semibold"
+                            >
+                                Tech Enabled
+                            </h3>
+                            <p class="text-lg xl:text-xl md:w-[50%]">
+                                Our school harnesses the power of technology to
+                                enhance education, employing smart classes,
+                                virtual sessions, and computer lessons
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 items-center border-y border-y-text"
+                        >
+                            <h3
+                                class="text-5xl md:text-6xl xl:text-7xl font-semibold"
+                            >
+                                Sports
+                            </h3>
+                            <p class="text-lg xl:text-xl md:w-[50%]">
+                                Our school supports sports with a big playground
+                                and a basketball court, all set up with the
+                                needed equipment
+                            </p>
+                        </div>
+                        <div
+                            class="flex flex-col md:flex-row gap-6 md:gap-4 justify-between py-6 items-center"
+                        >
+                            <h3
+                                class="text-5xl md:text-6xl xl:text-7xl font-semibold"
+                            >
+                                Clean spaces
+                            </h3>
+                            <p class="text-lg xl:text-xl md:w-[50%]">
+                                Prioritizing cleanliness and hygiene, our school
+                                maintains pristine surroundings to ensure a
+                                healthy learning environment for all students.
+                            </p>
+                        </div>
                     </div>
-				</section>
-				<section class="py-12 md:py-20 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto">
-					<div class="flex gap-6 flex-col md:flex-row pb-6">
-						<Image class="pop-image rounded w-full md:w-[60%] object-cover" loading='lazy' src={gridImage1} data-popover-src="/gallery/gal-img.jpg" alt='students in India formation'/>
-						<Image class="pop-image rounded w-full md:w-[40%] object-cover" loading='lazy' src={gridImage2} data-popover-src="/gallery/img22.jpg" alt='khel Mahotsav'/>
-					</div>
-					<div class="flex gap-6 flex-col md:flex-row">
-						<Image class="pop-image rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage3} data-popover-src="/gallery/img10.jpg" alt='students watching smartclass'/>
-						<Image class="pop-image rounded w-full md:w-[50%] object-cover" loading='lazy' src={gridImage4} data-popover-src="/gallery/img5.jpg" alt='khel Mahotsav'/>
-					</div>
-					<div class="w-full mt-4">
-						<a href="/gallery" class="mx-auto block w-fit h-fit text-lg md:text-xl py-2 px-6 bg-secondary rounded">View More</a>
-					</div>
-				</section>
-				<div class="px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto"><Footer/></div>
-				<div id="popover" class=" hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2">
-					<img class="max-w-[80%] max-h-[80vh] object-contain" id="popoverImage" src="" alt="">
-				</div>
-			</div>
-		</main>
-			<script src="../scripts/animations.js"></script>
-			<script src="../scripts/index.js"></script>
-
-	</body>
+                </section>
+                <section
+                    class="py-12 md:py-20 flex flex-col items-center gap-6 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto"
+                >
+                    <h2
+                        class="text-4xl xl:text-[2.5rem] font-medium block relative after:absolute after:bg-secondary after:w-[110%] after:h-5 after:left-[-5%] after:right-[-5%] after:top-[55%] after:-z-10"
+                    >
+                        Our Facilities
+                    </h2>
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="bg-[#D8E8C3] rounded p-4">
+                            <h3 class="text-2xl xl:text-3xl pb-3 font-medium">
+                                Smart Classrooms
+                            </h3>
+                            <p class="md:text-lg text-gray-800">
+                                Classrooms equipped with projector and smart
+                                board to encourage interactive learning
+                            </p>
+                        </div>
+                        <div class="bg-[#D8E8C3] rounded p-4">
+                            <h3 class="text-2xl xl:text-3xl pb-3 font-medium">
+                                Free uniform and textboook
+                            </h3>
+                            <p class="md:text-lg text-gray-800">
+                                To encourage underprivileged students to attend
+                                school, free uniform and textbooks are provided
+                                by our school to all children.
+                            </p>
+                        </div>
+                        <div class="bg-[#D8E8C3] rounded p-4">
+                            <h3 class="text-2xl xl:text-3xl pb-3 font-medium">
+                                Mid-day meal
+                            </h3>
+                            <p class="md:text-lg text-gray-800">
+                                Students are provided freshly prepared mid day
+                                meal at school everyday.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    class="py-8 md:py-4 my-12 md:my-16 flex flex-col md:flex-row justify-between gap-4 items-center bg-[rgb(196,234,147)] px-4 md:px-10 2xl:px-12"
+                >
+                    <div class="flex flex-col items-center md:items-start">
+                        <h2 class="text-4xl font-semibold">Latest Updates</h2>
+                        <p class="text-xl mt-2 text-gray-800">
+                            Stay informed about our latest news and activities
+                        </p>
+                        <a
+                            href="/updates"
+                            class="block w-fit mt-3 text-lg py-2 px-6 bg-green-900 text-white rounded"
+                            >View All</a
+                        >
+                    </div>
+                    <div
+                        class="flex flex-col md:flex-row mt-6 md:mt-0 gap-4 justify-between"
+                    >
+                        {
+                            updates.slice(0, 3).map((u) => (
+                                <a
+                                    href={
+                                        u.body !== "\n"
+                                            ? `/updates/${u.slug}`
+                                            : ""
+                                    }
+                                    class="bg-white max-w-sm pb-2 rounded-xl flex-1 flex flex-col justify-between"
+                                >
+                                    <div>
+                                        {" "}
+                                        {u.data.image && (
+                                            <Image
+                                                class="rounded-t-xl object-cover w-full aspect-[1000/615]"
+                                                src={u.data.image}
+                                                alt={u.data.title}
+                                                width={500}
+                                                height={300}
+                                            />
+                                        )}
+                                        <div class="mt-2 px-4">
+                                            <h3 class="font-medium">
+                                                {u.data.title}
+                                            </h3>
+                                            <p class="text-sm mt-1 text-gray-900">
+                                                {u.data.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 px-4 flex justify-between">
+                                        <span class="text-xs font-medium">
+                                            {new Date(
+                                                u.data.date,
+                                            ).toLocaleDateString("en-IN", {
+                                                year: "numeric",
+                                                month: "short",
+                                                day: "numeric",
+                                            })}
+                                        </span>
+                                        {u.body ? (
+                                            <span class="text-xs font-medium">
+                                                Read more
+                                            </span>
+                                        ) : null}
+                                    </div>
+                                </a>
+                            ))
+                        }
+                    </div>
+                </section>
+                <section
+                    class="py-12 md:py-20 px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto"
+                >
+                    <div class="flex gap-6 flex-col md:flex-row pb-6">
+                        <Image
+                            class="pop-image rounded w-full md:w-[60%] object-cover"
+                            loading="lazy"
+                            src={gridImage1}
+                            data-popover-src="/gallery/gal-img.jpg"
+                            alt="students in India formation"
+                        />
+                        <Image
+                            class="pop-image rounded w-full md:w-[40%] object-cover"
+                            loading="lazy"
+                            src={gridImage2}
+                            data-popover-src="/gallery/img22.jpg"
+                            alt="khel Mahotsav"
+                        />
+                    </div>
+                    <div class="flex gap-6 flex-col md:flex-row">
+                        <Image
+                            class="pop-image rounded w-full md:w-[50%] object-cover"
+                            loading="lazy"
+                            src={gridImage3}
+                            data-popover-src="/gallery/img10.jpg"
+                            alt="students watching smartclass"
+                        />
+                        <Image
+                            class="pop-image rounded w-full md:w-[50%] object-cover"
+                            loading="lazy"
+                            src={gridImage4}
+                            data-popover-src="/gallery/img5.jpg"
+                            alt="khel Mahotsav"
+                        />
+                    </div>
+                    <div class="w-full mt-4">
+                        <a
+                            href="/gallery"
+                            class="mx-auto block w-fit h-fit text-lg md:text-xl py-2 px-6 bg-secondary rounded"
+                            >View More</a
+                        >
+                    </div>
+                </section>
+                <div class="px-4 md:px-10 2xl:px-12 max-w-[115rem] mx-auto">
+                    <Footer />
+                </div>
+                <div
+                    id="popover"
+                    class="hidden fixed z-50 place-items-center inset-0 w-full h-full bg-[rgb(0_0_0/50%)] px-2"
+                >
+                    <img
+                        class="max-w-[80%] max-h-[80vh] object-contain"
+                        id="popoverImage"
+                        src=""
+                        alt=""
+                    />
+                </div>
+            </div>
+        </main>
+        <script src="../scripts/animations.js"></script>
+        <script src="../scripts/index.js"></script>
+    </body>
 </html>
