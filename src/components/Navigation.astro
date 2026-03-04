@@ -62,13 +62,3 @@ if (Astro.url.pathname === '/') {
   </div>
 </div>
 <script src="../scripts/navigation.js"></script>
-{isRoot && <script>
-window.onscroll = function() {
-      const navbar = document.querySelector('nav');
-      if (window.scrollY > 50) {
-        navbar.style = ""
-      } else {
-        navbar.style = "background-color: rgba(255, 255, 255, 0.17);"
-      }
-    }
-</script>}
