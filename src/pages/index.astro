@@ -18,7 +18,10 @@ updates.sort(
     (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
 );
 
-const { data: result } = await getEntry("results", "2025");
+const year = String(new Date().getFullYear());
+let entry = await getEntry("results", year);
+if (!entry) entry = await getEntry("results", String(Number(year) - 1));
+const { data: result } = entry;
 ---
 
 <html lang="en">
@@ -193,7 +196,7 @@ const { data: result } = await getEntry("results", "2025");
                             > Result
                         </h2>
                         <span class="text-2xl xl:text-3xl"
-                            >In High School and Inter</span
+                            >In High School</span
                         >
                         <a
                             href="/results"
